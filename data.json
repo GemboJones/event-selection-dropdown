@@ -1,0 +1,9 @@
+[
+  { "id": 1, "title": "Dinner Party", "date": "18/12/2024", "time": "17:00" },
+  { "id": 2, "title": "Xmas Party", "date": "20/12/2024", "time": "17:00" },
+  { "id": 3, "title": "Half Marathon", "date": "3/03/2025", "time": "17:00" },
+  { "id": 1, "title": "Tech Seminar", "date": "19/04/2025", "time": "17:00" },
+  { "id": 2, "title": "Baking Class", "date": "27/06/2025", "time": "17:00" },
+  { "id": 1, "title": "Summer Party", "date": "12/08/2025", "time": "17:00" },
+  { "id": 2, "title": "Chess Club", "date": "10/09/2025", "time": "17:00" }
+]
