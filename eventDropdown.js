@@ -45,7 +45,6 @@ formSubmit.addEventListener("submit", (e) => {
       filteredEventIds.push(element.id);
       element.classList.remove("checked");
     });
-    console.log({ filteredEventIds });
 
     let filteredEvents = [];
     eventData.forEach((element) => {
