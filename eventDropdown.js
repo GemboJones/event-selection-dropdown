@@ -58,7 +58,7 @@ formSubmit.addEventListener("submit", (e) => {
     selectBtn.classList.remove("open");
     btnText.innerText = "Select events";
 
-    alert(`Your selected events: ${filteredEventIds}`);
+    alert(`Your selected event IDs: \n${filteredEventIds}`);
   } else {
     alert("Ensure you select at least one event");
   }
