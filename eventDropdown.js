@@ -11,19 +11,19 @@ fetch("./data.json")
       newListItem.className = "item";
       newListItem.addEventListener("click", () => {
         newListItem.classList.toggle("checked");
-        let checked = document.querySelectorAll(".checked"),
+        let isChecked = document.querySelectorAll(".checked"),
           btnText = document.querySelector(".btn-text");
-        if (checked && checked.length > 0) {
-          btnText.innerText = `${checked.length} Selected`;
+        if (isChecked && isChecked.length > 0) {
+          btnText.innerText = `${isChecked.length} Selected`;
         } else {
           btnText.innerText = "Select events";
         }
       });
+      ulElem.appendChild(newListItem);
 
       let listItemContent = `<span class="checkbox"><i class="fa-solid fa-check check-icon"></i></span>
         <span class="item-text">${event.title} - ${event.date}</span>`;
 
-      ulElem.appendChild(newListItem);
       newListItem.insertAdjacentHTML("beforeend", listItemContent);
     });
   });
@@ -37,28 +37,29 @@ let formSubmit = document.querySelector("form");
 formSubmit.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  let isChecked = document.querySelectorAll(".checked");
+  isChecked = document.querySelectorAll(".checked");
   if (isChecked && isChecked.length > 0) {
-    
-    let selectedEventIds = [];
+
+    let filteredEventIds = [];
     isChecked.forEach((element) => {
+      filteredEventIds.push(element.id);
       element.classList.remove("checked");
-      selectedEventIds.push(element.id);
     });
+    console.log({ filteredEventIds });
+
+    let filteredEvents = [];
+    eventData.forEach((element) => {
+      if (filteredEventIds.toString().includes(element.id)) {
+        filteredEvents.push(element);
+      }
+    });
+    console.log({ filteredEvents });
 
     btnText = document.querySelector(".btn-text");
     selectBtn.classList.remove("open");
     btnText.innerText = "Select events";
 
-    let filteredEvents = { filteredEvents: [] };
-    eventData.forEach((element) => {
-      if (selectedEventIds.toString().includes(element.id)) {
-        filteredEvents.filteredEvents.push(element);
-      }
-    });
-    console.log(filteredEvents);
-
-    alert(`Your selected events: ${selectedEventIds}`);
+    alert(`Your selected events: ${filteredEventIds}`);
   } else {
     alert("Ensure you select at least one event");
   }
