@@ -1,10 +1,8 @@
 const ulElem = document.querySelector("ul");
-let eventData = [];
 
 fetch("./data.json")
   .then((response) => response.json())
   .then((data) => {
-    eventData = data;
     data.forEach((event) => {
       let newListItem = document.createElement("li");
       newListItem.id = `${event.id}`;
@@ -71,11 +69,10 @@ fetch("./data.json")
         let filteredEventIds = [];
         isChecked.forEach((element) => {
           filteredEventIds.push(element.id);
-          element.classList.remove("checked");
         });
 
         let filteredEvents = [];
-        eventData.forEach((element) => {
+        data.forEach((element) => {
           if (filteredEventIds.toString().includes(element.id)) {
             filteredEvents.push(element);
           }
@@ -93,6 +90,7 @@ fetch("./data.json")
       input.value = "";
       allListItems.forEach((listItem) => {
         listItem.removeAttribute("style");
+        listItem.classList.remove("checked");
 
       });
     });
