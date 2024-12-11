@@ -58,7 +58,7 @@ h1 {
 .select-btn.open .arrow-dwn {
   transform: rotate(-180deg);
 }
-.list-items {
+.dropdown {
   position: relative;
   margin-top: 15px;
   border: 1px solid rgba(34, 36, 50, .3);
@@ -66,9 +66,19 @@ h1 {
   padding: 16px;
   background-color: #fff;
   display: none;
-  max-height: 250px;
+  max-height: 300px;
+  overflow-y: hidden;
+}
+.list-items {
+  position: relative;
+  margin-top: 12px;
+  /* border: 1px solid rgba(34, 36, 50, .3); */
+  border-radius: 6px;
+  /* padding: 16px; */
+  background-color: #fff;
+  /* display: none; */
+  max-height: 200px;
   overflow-y: auto;
-  padding-right: 7px;
 }
 .list-items::-webkit-scrollbar {
   width: 7px;
@@ -84,9 +94,11 @@ h1 {
 .list-items::-webkit-scrollbar-thumb:hover {
   background: #b3b3b3;
 }
-.select-btn.open ~ .list-items {
+
+.select-btn.open ~ .dropdown{
   display: block;
 }
+
 .list-items .item {
   display: flex;
   align-items: center;
@@ -95,6 +107,7 @@ h1 {
   cursor: pointer;
   transition: 0.3s;
   padding: 0 15px;
+  margin-right: 6px;
   border-radius: 8px;
 }
 .list-items .item:hover {
@@ -128,6 +141,34 @@ h1 {
 }
 .item.checked .check-icon {
   transform: scale(1);
+}
+.search i{
+  top: 28px;
+  left: 16px;
+  padding: 0 12px;
+  color: #b3b3b3;
+  font-size: 15px;
+  pointer-events: none;
+  position: absolute;
+}
+.search input{  
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 14px;
+  border-radius: 6px !important; 
+  padding: 0 15px 0 36px;
+  border: 1px solid rgba(34, 36, 50, .3);
+
+  /* margin: 0 15px; */
+  border-radius: 8px;
+}
+.search input:focus{
+  padding-left: 35px;
+  border: 2px solid #f4917b;
+}
+.search input::placeholder{
+  color: #bfbfbf;
 }
 button {
   margin-top: 30px;
