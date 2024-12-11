@@ -33,21 +33,21 @@ selectBtn.addEventListener("click", () => {
   selectBtn.classList.toggle("open");
 });
 
-const dropdown = document.querySelector(".dropdown");
-const arrowButton = document.querySelector(".arrow-dwn");
-const arrow = document.querySelector("i");
-btnText = document.querySelector(".btn-text");
-document.addEventListener("click", (e) => {
-  if (selectBtn.classList.contains("open") &&
-    !dropdown.contains(e.target) &&
-    e.target !== selectBtn &&
-    e.target !== arrowButton &&
-    e.target !== arrow &&
-    e.target !== btnText
-  ) {
-    selectBtn.classList.remove("open");
-  }
-});
+// const dropdown = document.querySelector(".dropdown");
+// const arrowButton = document.querySelector(".arrow-dwn");
+// const arrow = document.querySelector("i");
+// btnText = document.querySelector(".btn-text");
+// document.addEventListener("click", (e) => {
+//   if (selectBtn.classList.contains("open") &&
+//     !dropdown.contains(e.target) &&
+//     e.target !== selectBtn &&
+//     e.target !== arrowButton &&
+//     e.target !== arrow &&
+//     e.target !== btnText
+//   ) {
+//     selectBtn.classList.remove("open");
+//   }
+// });
 
 let formSubmit = document.querySelector("form");
 formSubmit.addEventListener("submit", (e) => {
