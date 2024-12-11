@@ -38,7 +38,7 @@ const arrowButton = document.querySelector(".arrow-dwn");
 const arrow = document.querySelector("i");
 btnText = document.querySelector(".btn-text");
 document.addEventListener("click", (e) => {
-  if (
+  if (selectBtn.classList.contains("open") &&
     !dropdown.contains(e.target) &&
     e.target !== selectBtn &&
     e.target !== arrowButton &&
