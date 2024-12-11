@@ -39,7 +39,7 @@ const arrow = document.querySelector("i");
 btnText = document.querySelector(".btn-text");
 document.addEventListener("click", (e) => {
   if (
-    !dropdown.contains(e.target) &&
+    !dropdown?.contains(e.target) &&
     e.target !== selectBtn &&
     e.target !== arrowButton &&
     e.target !== arrow &&
