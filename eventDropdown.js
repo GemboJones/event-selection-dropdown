@@ -4,7 +4,7 @@ fetch("./data.json")
   .then((response) => response.json())
   .then((data) => {
     data.forEach((event) => {
-      let newListItem = document.createElement("li");
+      const newListItem = document.createElement("li");
       newListItem.id = `${event.id}`;
       newListItem.className = "item";
       newListItem.addEventListener("click", () => {
@@ -16,13 +16,12 @@ fetch("./data.json")
         } else {
           btnText.innerText = "Select events";
         }
-      });
-      ulElem.appendChild(newListItem);
-
-      let listItemContent = `<span class="checkbox"><i class="fa-solid fa-check check-icon"></i></span>
-        <span class="item-text">${event.title} - ${event.date}</span>`;
-
+      });      
+      const listItemContent = `<span class="checkbox"><i class="fa-solid fa-check check-icon"></i></span>
+      <span class="item-text">${event.title} - ${event.date}</span>`;
+      
       newListItem.insertAdjacentHTML("beforeend", listItemContent);
+      ulElem.appendChild(newListItem);
     });
 
     const selectBtn = document.querySelector(".select-btn");
@@ -30,17 +29,16 @@ fetch("./data.json")
       selectBtn.classList.toggle("open");
     });
 
-    let input = document.querySelector("input");
+    const input = document.querySelector("input");
     const allListItems = document.querySelectorAll("li");
 
     input.addEventListener("input", (e) => {
       const search = e.target.value.toLowerCase();
       allListItems.forEach((listItem) => {
-        if (!listItem.innerText.toLowerCase().includes(search)) {
-          listItem.style.display = "none";
-        } else {
-          listItem.style.display = "";
-        }
+                listItem.classList.toggle(
+                  "hidden",
+                  !listItem.innerText.toLowerCase().includes(search)
+                );
       });
     });
 
@@ -60,18 +58,18 @@ fetch("./data.json")
     //   }
     // });
 
-    let formSubmit = document.querySelector("form");
+    const formSubmit = document.querySelector("form");
     formSubmit.addEventListener("submit", (e) => {
       e.preventDefault();
 
       isChecked = document.querySelectorAll(".checked");
       if (isChecked && isChecked.length > 0) {
-        let filteredEventIds = [];
+        const filteredEventIds = [];
         isChecked.forEach((element) => {
           filteredEventIds.push(element.id);
         });
 
-        let filteredEvents = [];
+        const filteredEvents = [];
         data.forEach((element) => {
           if (filteredEventIds.toString().includes(element.id)) {
             filteredEvents.push(element);
@@ -89,7 +87,7 @@ fetch("./data.json")
       }
       input.value = "";
       allListItems.forEach((listItem) => {
-        listItem.removeAttribute("style");
+        listItem.classList.remove("hidden");
         listItem.classList.remove("checked");
 
       });

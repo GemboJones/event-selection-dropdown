@@ -139,6 +139,9 @@ h1 {
 .item.checked .check-icon {
   transform: scale(1);
 }
+.item.hidden {
+  display: none;
+}
 .search i{
   top: 28px;
   left: 16px;
