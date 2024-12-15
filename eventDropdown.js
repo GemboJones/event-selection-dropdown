@@ -82,6 +82,7 @@ fetch("./data.json")
 
         alert(`Your selected event IDs: \n${filteredEventIds}`);
       } else {
+        selectBtn.classList.add("open");
         alert("Ensure you select at least one event");
       }
       input.value = "";
