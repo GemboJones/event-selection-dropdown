@@ -21,24 +21,21 @@
     </header>
     <main>
       <form class="container">
-        <div>
-          <div class="select-btn">
-            <span class="btn-text">Select events</span>
-            <span class="arrow-dwn">
-              <i class="fa-solid fa-chevron-down"></i>
-            </span>
-          </div>
-          <div class="dropdown">
-            <div class="search">
-              <i class="uil uil-search"></i>
-              <input type="search" placeholder="Search" value=""/>
-            </div>
-            <ul class="list-items"></ul>
-          </div>
+        <div class="select-btn" role="button">
+          <span class="btn-text">Select events</span>
+          <span class="arrow-dwn">
+            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </span>
         </div>
-        <div>
-          <button type="submit">View Events</button>
+        <div class="dropdown" id="event-dropdown" role="listbox">
+          <div class="search">
+            <i class="uil uil-search" aria-hidden="true"></i>
+            <label for="search-events" class="sr-only">Search events</label>
+            <input type="search" id="search-events" placeholder="Search" aria-label="Search events" value="" />
+          </div>
+          <ul class="list-items"></ul>
         </div>
+        <button type="submit" aria-label="View selected events">View Events</button>
       </form>
     </main>
 

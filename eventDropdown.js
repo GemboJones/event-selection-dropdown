@@ -7,20 +7,26 @@ fetch("./data.json")
       const newListItem = document.createElement("li");
       newListItem.id = `${event.id}`;
       newListItem.className = "item";
+      newListItem.setAttribute("role", "listitem");
+      const listItemContent = `
+      <span class="checkbox" role="checkbox">
+      <i class="fa-solid fa-check check-icon" aria-hidden="true"></i>
+      </span>
+      <span class="item-text">${event.title} - ${event.date}</span>
+      `;
+      newListItem.insertAdjacentHTML("beforeend", listItemContent);
+      
       newListItem.addEventListener("click", () => {
         newListItem.classList.toggle("checked");
         let isChecked = document.querySelectorAll(".checked"),
-          btnText = document.querySelector(".btn-text");
+        btnText = document.querySelector(".btn-text");
         if (isChecked && isChecked.length > 0) {
           btnText.innerText = `${isChecked.length} Selected`;
         } else {
           btnText.innerText = "Select events";
         }
-      });      
-      const listItemContent = `<span class="checkbox"><i class="fa-solid fa-check check-icon"></i></span>
-      <span class="item-text">${event.title} - ${event.date}</span>`;
+      });
       
-      newListItem.insertAdjacentHTML("beforeend", listItemContent);
       ulElem.appendChild(newListItem);
     });
 
@@ -35,10 +41,10 @@ fetch("./data.json")
     input.addEventListener("input", (e) => {
       const search = e.target.value.toLowerCase();
       allListItems.forEach((listItem) => {
-                listItem.classList.toggle(
-                  "hidden",
-                  !listItem.innerText.toLowerCase().includes(search)
-                );
+        listItem.classList.toggle(
+          "hidden",
+          !listItem.innerText.toLowerCase().includes(search)
+        );
       });
     });
 
@@ -47,7 +53,8 @@ fetch("./data.json")
     const arrow = document.querySelector("i");
     btnText = document.querySelector(".btn-text");
     document.addEventListener("click", (e) => {
-      if (selectBtn.classList.contains("open") &&
+      if (
+        selectBtn.classList.contains("open") &&
         !dropdown.contains(e.target) &&
         e.target !== selectBtn &&
         e.target !== arrowButton &&
@@ -89,7 +96,6 @@ fetch("./data.json")
       allListItems.forEach((listItem) => {
         listItem.classList.remove("hidden");
         listItem.classList.remove("checked");
-
       });
     });
   });
